@@ -17,6 +17,9 @@ import { UserComponent } from './user/user.component';
 import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
+import { initializeApp } from "firebase/app";
+import { initializeApp as initializeApp_alias, provideFirebaseApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,9 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    FormsModule
+    FormsModule,
+    provideFirebaseApp(() => initializeApp({"projectId":"simple-crm-c9dca","appId":"1:1028132509425:web:08141e2be18b1bc4fbfb50","storageBucket":"simple-crm-c9dca.appspot.com","apiKey":"AIzaSyANVHgcmIRjf02TosYToQLfQqFxgmrEgiY","authDomain":"simple-crm-c9dca.firebaseapp.com","messagingSenderId":"1028132509425"})),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]
