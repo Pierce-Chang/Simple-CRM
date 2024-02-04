@@ -32,7 +32,6 @@ export class UserComponent implements OnInit{
     const users$ = collectionData(usersRef, { idField: 'id' }) as Observable<User[]>;
 
     users$.subscribe(changes => {
-      console.log('Changes in the database:', changes);
       this.allUsers = changes;
       console.log('All users:', this.allUsers);
     });
