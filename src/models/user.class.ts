@@ -1,4 +1,9 @@
+import { Firestore } from "@angular/fire/firestore";
+
 export class User {
+    id(firestore: Firestore, arg1: string, id: any) {
+      throw new Error('Method not implemented.');
+    }
     firstName: string;
     lastName: string;
     birthDate: number;

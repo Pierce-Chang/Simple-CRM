@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user.class';
 import { inject } from '@angular/core';
 import { Firestore, collectionData, collection, addDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { MatDialogRef } from '@angular/material/dialog';
 
 interface Item {
   name: string,
@@ -20,8 +21,8 @@ export class DialogAddUserComponent {
 
   firestore: Firestore = inject(Firestore);
 
-  constructor() {
-  }
+  constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) {}
+
 
   saveUser() {
     this.user.birthDate = this.birthDate.getTime();
@@ -30,11 +31,11 @@ export class DialogAddUserComponent {
 
     const userData = this.user.toJSON();
 
-    addDoc(collection(this.firestore, "users"), {
-      user: userData,
-    }).then(() => {
+    addDoc(collection(this.firestore, "users"),userData)
+    .then(() => {
       this.loading = false;
       console.log('Adding user finished');
+      this.dialogRef.close();
     }).catch(error => {
       console.error('Error adding user:', error);
     });
