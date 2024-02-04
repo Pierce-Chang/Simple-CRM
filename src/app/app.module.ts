@@ -20,6 +20,10 @@ import { FormsModule } from '@angular/forms';
 import { initializeApp } from "firebase/app";
 import { initializeApp as initializeApp_alias, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { FirestoreModule } from '@angular/fire/firestore';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { CommonModule } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -44,7 +48,10 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
     MatNativeDateModule,
     FormsModule,
     provideFirebaseApp(() => initializeApp({"projectId":"simple-crm-c9dca","appId":"1:1028132509425:web:08141e2be18b1bc4fbfb50","storageBucket":"simple-crm-c9dca.appspot.com","apiKey":"AIzaSyANVHgcmIRjf02TosYToQLfQqFxgmrEgiY","authDomain":"simple-crm-c9dca.firebaseapp.com","messagingSenderId":"1028132509425"})),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    FirestoreModule,
+    MatProgressBarModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
