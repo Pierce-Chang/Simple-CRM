@@ -1,5 +1,3 @@
-<!-- <div class="dialog-container"> -->
-
 <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 
 <h2 mat-dialog-title>Add User</h2>
@@ -58,9 +56,8 @@
     </div>
 
 </mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button>Cancel</button>
-  <button (click)="saveUser()" mat-button cdkFocusInitial>Save</button>
-</mat-dialog-actions>
 
-<!-- </div> -->
+<mat-dialog-actions>
+  <button [disabled]="loading" mat-button (click)="dialogRef.close()">Cancel</button>
+  <button [disabled]="loading" mat-button  (click)="saveUser()" cdkFocusInitial>Save</button>
+</mat-dialog-actions>
