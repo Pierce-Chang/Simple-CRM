@@ -4,6 +4,10 @@ import { ActivatedRoute } from '@angular/router';
 import { User } from '../../models/user.class';
 import { Observable } from 'rxjs';
 import {MatIconModule} from '@angular/material/icon';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-address.component';
+import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
+import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
 
 @Component({
   selector: 'app-user-detail',
@@ -17,7 +21,9 @@ export class UserDetailComponent {
 
   firestore: Firestore = inject(Firestore);
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+    private route: ActivatedRoute, 
+    public dialog: MatDialog) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(paramMap => {
@@ -33,6 +39,7 @@ export class UserDetailComponent {
       if (doc.data()) {
         let userData = doc.data();
         this.user = userData as User;
+        console.log('Recieved user:', this.user);
       }
     });
   }
@@ -40,5 +47,13 @@ export class UserDetailComponent {
 
   openAddressDialog() {
     console.log('Opening address dialog');
+  }
+
+  editMenu() {
+    this.dialog.open(DialogEditAddressComponent);
+  }
+
+  editUserDetail() {
+    this.dialog.open(DialogEditUserComponent);
   }
 }
