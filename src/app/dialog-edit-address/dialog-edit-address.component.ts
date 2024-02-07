@@ -10,7 +10,7 @@ import { Firestore, addDoc, collection, doc, getFirestore, updateDoc } from '@an
 })
 export class DialogEditAddressComponent {
   loading = false;
-  user!: User;
+  user: User = new User();
   userId : string = '';
 
   firestore: Firestore = inject(Firestore);

@@ -1,12 +1,9 @@
 import { Component, inject } from '@angular/core';
-import { Firestore, doc, docData, getDoc, onSnapshot } from '@angular/fire/firestore';
+import { Firestore, doc, onSnapshot } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { User } from '../../models/user.class';
-import { Observable } from 'rxjs';
-import {MatIconModule} from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-address.component';
-import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
 
 @Component({

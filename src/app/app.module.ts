@@ -65,7 +65,7 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
     MatCardModule,
     MatMenuModule,
   ],
-  providers: [],
+  providers: [FirestoreModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
