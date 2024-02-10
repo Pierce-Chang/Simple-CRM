@@ -28,8 +28,8 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
-
-
+import { NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
+import { ReviewsComponent } from './reviews/reviews.component';
 
 
 @NgModule({
@@ -40,7 +40,8 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
     DialogAddUserComponent,
     UserDetailComponent,
     DialogEditAddressComponent,
-    DialogEditUserComponent
+    DialogEditUserComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,
@@ -64,8 +65,9 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
     CommonModule,
     MatCardModule,
     MatMenuModule,
+    NgChartsModule
   ],
-  providers: [FirestoreModule],
+  providers: [FirestoreModule, { provide: NgChartsConfiguration, useValue: { generateColors: false }}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

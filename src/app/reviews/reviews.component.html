@@ -1,0 +1,15 @@
+<mat-card>
+    <mat-card-content>
+        <div>
+            <mat-card>
+              <mat-card-content>
+                <h2>Customer reviews</h2>
+                <canvas baseChart class="chart" [data]="customerReviewChartData" [options]="customerReviewChartOptions"
+                        [plugins]="barChartPlugins" [type]="barChartType">
+                </canvas>
+              </mat-card-content>
+            </mat-card>
+          </div>              
+    </mat-card-content>
+</mat-card>
+

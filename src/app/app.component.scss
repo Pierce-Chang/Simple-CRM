@@ -4,15 +4,16 @@
 
 .menu-icon {
     cursor: pointer;
+    margin-right: 20px;
 }
 
 .sidenav {
-    width: 300px;
+    width: 230px;
 }
 
 .logo-container {
     border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-    padding: 0 16px;
+    padding: 0 12px;
     min-height: 56px;
     display: flex;
     align-items: center;
@@ -20,8 +21,12 @@
 
 mat-toolbar, mat-toolbar-row {
     min-height: 56px;
-    height: 56px;
+    height: 58px;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: inset 8px 2px 5px rgba(0, 0, 0, 0.02);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
+
 
 .menu-items {
     list-style-type: none;
@@ -33,7 +38,7 @@ mat-toolbar, mat-toolbar-row {
     }
 
     li {
-        padding: 0 16px;
+        padding: 4px 16px;
         height: 48px;
         display: flex;
         align-items: center;
@@ -49,6 +54,7 @@ mat-toolbar, mat-toolbar-row {
     padding-left: 56px;
     padding-right: 56px;
     padding-top: 16px;
+    box-shadow: inset 8px 2px 5px rgba(0, 0, 0, 0.02);
 }
 
 .logo {
