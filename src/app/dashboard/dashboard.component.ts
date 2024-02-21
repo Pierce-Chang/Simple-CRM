@@ -1,5 +1,5 @@
-import { Component, ViewChild  } from '@angular/core';
-import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
+import { Component, OnInit, ViewChild  } from '@angular/core';
+import { ChartConfiguration, ChartData, ChartEvent, ChartOptions, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
@@ -9,85 +9,275 @@ import DataLabelsPlugin from 'chartjs-plugin-datalabels';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
+  graphWeek: Boolean = true;
+  graphMonth: Boolean = false;
+  graphYear: Boolean = false;
+  lineChart2023: Boolean = true;
+  lineChart2022: Boolean = false;
+  lineChart2021: Boolean = false;
+  markers: any[] = [];
+  public loading = true;
+
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
-  public barChartOptions: ChartConfiguration['options'] = {
-    // We use these empty structures as placeholders for dynamic theming.
-    scales: {
-      x: {},
-      y: {
-        min: 1,
-      },
-    },
-    plugins: {
-      legend: {
-        display: true,
-      },
-      datalabels: {
-        anchor: 'end',
-        align: 'end',
-      },
-    },
+  // Doughnut Graph Week
+  public doughnutChartLabelsWeek: string[] = [
+    'Product One',
+    'Product Two',
+    'Product Three',
+  ];
+  public doughnutChartDatasetsWeek: ChartConfiguration<'doughnut'>['data']['datasets'] =
+    [{  data: [631, 467, 280],
+        label: 'Sales',
+        backgroundColor: ["#00bfff3d","#ffd502","#5ede60"],
+        //hoverBackgroundColor: ["#96b7b9","#718283","#5c6b6d"],
+      }];
+
+  public doughnutChartOptionsWeek: ChartConfiguration<'doughnut'>['options'] = {
+    responsive: true,
+    cutout: 95,
   };
 
-  public customerReviewChartOptions: ChartConfiguration['options'] = {
-    scales: {
-      x: {},
-      y: {
-        min: 0, // Minimalwert auf 0 setzen, um das Diagramm auf eine Skala von 0 bis 5 zu beschränken
-        max: 5, // Maximalwert auf 5 setzen für eine Bewertungsskala von 1 bis 5
-      },
-    },
-    plugins: {
-      legend: {
-        display: true,
-      },
-      datalabels: {
-        anchor: 'end',
-        align: 'end',
-      },
-    },
+  // Doughnut Graph Month
+  public doughnutChartLabelsMonth: string[] = [
+    'Product One',
+    'Product Two',
+    'Product Three',
+  ];
+  public doughnutChartDatasetsMonth: ChartConfiguration<'doughnut'>['data']['datasets'] =
+    [{  data: [2567, 1698, 1860],
+        label: 'Sales',
+        backgroundColor: ["#00bfff3d","#ffd502","#5ede60"],
+        //hoverBackgroundColor: ["#96b7b9","#718283","#5c6b6d"],
+      }];
+
+  public doughnutChartOptionsMonth: ChartConfiguration<'doughnut'>['options'] =
+    {
+      responsive: true,
+      cutout: 95,
+    };
+
+  // Doughnut Graph Year
+  public doughnutChartLabelsYear: string[] = [
+    'Product One',
+    'Product Two',
+    'Product Three',
+  ];
+  public doughnutChartDatasetsYear: ChartConfiguration<'doughnut'>['data']['datasets'] =
+    [{  data: [17654, 18433, 24399],
+        label: 'Sales',
+        backgroundColor: ["#00bfff3d","#ffd502","#5ede60"],
+        //hoverBackgroundColor: ["#96b7b9","#718283","#5c6b6d"],
+      }];
+
+  public doughnutChartOptionsYear: ChartConfiguration<'doughnut'>['options'] = {
+    responsive: true,
+    maintainAspectRatio: false,
+    cutout: 95,
   };
 
-  public barChartType: ChartType = 'bar';
-  public barChartPlugins = [DataLabelsPlugin];
 
-  public barChartData: ChartData<'bar'> = {
-    labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024'],
-    datasets: [
-      { data: [55, 42, 60, 71, 86, 95, 85], label: 'Sales at new cars' },
-      { data: [78, 38, 69, 89, 96, 67, 90], label: 'Sales at pre-owned car' },
-    ],
-  };
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  public customerReviewChartData: ChartData<'bar'> = {
-    labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+  //Line Chart 2023
+  public lineChartData2023: ChartConfiguration<'line'>['data'] = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
     datasets: [
       {
-        data: [4.5, 4.3, 4.6, 4.8, 4.2, 4.9, 4.7],
-        label: 'Customer Satisfaction',
-        backgroundColor: 'rgba(255, 215, 0, 0.6)', // Transparentes Goldgelb
-        borderColor: 'rgb(255, 215, 0)' // Solides Goldgelb
+        data: [5836, 5787, 5950, 5960, 6129, 6190, 6028, 6280, 6320, 6280, 6340, 6500],
+        label: 'Sales',
+        fill: true,
+        tension: 0.2,
+        borderColor: 'rgba(0, 0, 0, 0.1)',
+        backgroundColor: '#00bfff3d',
+        pointBackgroundColor: '#82c4ff',
+        pointBorderColor: 'rgba(0,0,0,0.2)',
+        hoverBorderColor: 'rgba(0,0,0,0.2)',
+        borderWidth: 1,
       },
     ],
   };
-  public chartClicked({
-    event,
-    active,
-  }: {
-    event?: ChartEvent;
-    active?: object[];
-  }): void {
-    console.log(event, active);
+  public lineChartOptions2023: ChartOptions<'line'> = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        grid: {
+          display: false
+        }
+      },
+      y: {
+        grid: {
+          display: false
+        }
+      }
+    }
+  };
+  public lineChartLegend2023 = false;
+
+
+  //Line Chart 2022
+  public lineChartData2022: ChartConfiguration<'line'>['data'] = {
+    labels: [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+    ],
+    datasets: [
+      {
+        data: [3855, 4258, 4177, 4379, 4355, 4555, 4760, 4555, 4256, 4367, 4670, 4871],
+        label: 'Sales',
+        fill: true,
+        tension: 0.2,
+        borderColor: 'rgba(0, 0, 0, 0.1)',
+        backgroundColor: '#00bfff3d',
+        pointBackgroundColor: '#82c4ff',
+        pointBorderColor: 'rgba(0,0,0,0.2)',
+        hoverBorderColor: 'rgba(0,0,0,0.2)',
+        borderWidth: 1,
+      },
+    ],
+  };
+  public lineChartOptions2022: ChartOptions<'line'> = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        grid: {
+          display: false
+        }
+      },
+      y: {
+        grid: {
+          display: false
+        }
+      }
+    }
+  };
+  public lineChartLegend2022 = false;
+
+
+  //Line Chart 2021
+  public lineChartData2021: ChartConfiguration<'line'>['data'] = {
+    labels: [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+    ],
+    datasets: [
+      {
+        data: [2330, 2143, 2555, 2764, 2855, 3255, 3360, 3665, 2956, 3767, 3880, 3971],
+        label: 'Sales',
+        fill: true,
+        tension: 0.2,
+        borderColor: 'rgba(0, 0, 0, 0.1)',
+        backgroundColor: '#00bfff3d',
+        pointBackgroundColor: '#82c4ff',
+        pointBorderColor: 'rgba(0,0,0,0.2)',
+        hoverBorderColor: 'rgba(0,0,0,0.2)',
+        borderWidth: 1,
+      },
+    ],
+  };
+  public lineChartOptions2021: ChartOptions<'line'> = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        grid: {
+          display: false
+        }
+      },
+      y: {
+        grid: {
+          display: false
+        }
+      }
+    }
+  };
+  public lineChartLegend2021 = false;
+
+
+  /**
+   * Show the choosen graph and hide the others
+   *
+   */
+  showGraphWeek() {
+    this.graphMonth = false;
+    this.graphYear = false;
+    this.graphWeek = true;
   }
 
-  public chartHovered({
-    event,
-    active,
-  }: {
-    event?: ChartEvent;
-    active?: object[];
-  }): void {
-    console.log(event, active);
+
+  /**
+   * Show the choosen graph and hide the others
+   *
+   */
+  showGraphMonth() {
+    this.graphWeek = false;
+    this.graphYear = false;
+    this.graphMonth = true;
+  }
+
+
+  /**
+   * Show the choosen graph and hide the others
+   *
+   */
+  showGraphYear() {
+    this.graphWeek = false;
+    this.graphMonth = false;
+    this.graphYear = true;
+  }
+
+
+  /**
+   * Show the choosen graph and hide the others
+   *
+   */
+  showLineChart2023() {
+    this.lineChart2022 = false;
+    this.lineChart2021 = false;
+    this.lineChart2023 = true;
+  }
+
+
+  /**
+   * Show the choosen graph and hide the others
+   *
+   */
+  showLineChart2022() {
+    this.lineChart2023 = false;
+    this.lineChart2021 = false;
+    this.lineChart2022 = true;
+  }
+
+
+  /**
+   * Show the choosen graph and hide the others
+   *
+   */
+  showLineChart2021() {
+    this.lineChart2022 = false;
+    this.lineChart2023 = false;
+    this.lineChart2021 = true;
   }
 }

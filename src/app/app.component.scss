@@ -1,3 +1,5 @@
+$light-blue: #b9edfe;
+
 .mat-drawer-container {
     height: 100vh;
 }
@@ -5,6 +7,7 @@
 .menu-icon {
     cursor: pointer;
     margin-right: 20px;
+    scale: 1.1;
 }
 
 .sidenav {
@@ -19,7 +22,8 @@
     align-items: center;
 }
 
-mat-toolbar, mat-toolbar-row {
+mat-toolbar,
+mat-toolbar-row {
     min-height: 56px;
     height: 58px;
     font-family: 'Poppins', sans-serif;
@@ -27,11 +31,22 @@ mat-toolbar, mat-toolbar-row {
     border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
 
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: calc(100% - 58px);
+}
+
 
 .menu-items {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 
     mat-icon {
         margin-right: 16px;
@@ -39,25 +54,41 @@ mat-toolbar, mat-toolbar-row {
 
     li {
         padding: 4px 16px;
-        height: 48px;
+        height: 42px;
+        width: 170px;
         display: flex;
         align-items: center;
+        font-size: 16px;
+        border-radius: 28px;
+        margin: 8px 0;
         cursor: pointer;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 
         &:hover {
-            background-color: rgba(0, 0, 0, 0.04);
+            background-color: rgba(0, 0, 0, 0.03);
+            box-shadow: 0 2px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        &:active {
+            background-color: rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 0px rgba(0, 0, 0, 0.2);
         }
     }
 }
 
 .router-container {
-    padding-left: 56px;
-    padding-right: 56px;
-    padding-top: 16px;
+    padding: 16px;
     box-shadow: inset 8px 2px 5px rgba(0, 0, 0, 0.02);
 }
 
 .logo {
     max-width: 100%;
     height: 40px;
+}
+
+.example-sidenav-content {
+
+    span {
+        font-size: 28px;
+    }
 }

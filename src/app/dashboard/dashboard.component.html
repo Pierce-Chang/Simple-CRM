@@ -1,11 +1,105 @@
-<div>
-    <mat-card>
-        <mat-card-content>
-            <h2>Sales in the last years</h2>
-            <canvas baseChart class="chart" [data]="barChartData" [options]="barChartOptions"
-                [plugins]="barChartPlugins" [type]="barChartType" (chartHover)="chartHovered($event)"
-                (chartClick)="chartClicked($event)">
-            </canvas>
-        </mat-card-content>
-    </mat-card>
-</div>
+<section>
+    <div class="graphs-container">
+        <mat-card class="line-chart-container">
+            <mat-card-content class="mat-card-content-line-chart">
+                <div class="text-box-line-chart">
+                    <div class="headline headline-total-sales">Total Sales</div>
+                    <button class="btn-show-more margin-btn" mat-button [matMenuTriggerFor]="belowMenu1">
+                        <span *ngIf="lineChart2023" class="span-period">2023</span>
+                        <span *ngIf="lineChart2022" class="span-period">2022</span>
+                        <span *ngIf="lineChart2021" class="span-period">2021</span>
+                        <mat-icon class="icon">expand_more</mat-icon>
+                    </button>
+                    <mat-menu class="mat-menu" #belowMenu1="matMenu" yPosition="below">
+                        <button mat-menu-item *ngIf="!lineChart2023" (click)="showLineChart2023()">
+                            2023
+                        </button>
+                        <button mat-menu-item *ngIf="!lineChart2022" (click)="showLineChart2022()">
+                            2022
+                        </button>
+                        <button mat-menu-item *ngIf="!lineChart2021" (click)="showLineChart2021()">
+                            2021
+                        </button>
+                    </mat-menu>
+                </div>
+
+                <canvas *ngIf="lineChart2023" baseChart width="850" height="350" [type]="'line'"
+                    [data]="lineChartData2023" [options]="lineChartOptions2023" [legend]="lineChartLegend2023">
+                </canvas>
+
+                <canvas *ngIf="lineChart2022" baseChart width="850" height="350" [type]="'line'"
+                    [data]="lineChartData2022" [options]="lineChartOptions2022" [legend]="lineChartLegend2022">
+                </canvas>
+
+                <canvas *ngIf="lineChart2021" baseChart width="850" height="350" [type]="'line'"
+                    [data]="lineChartData2021" [options]="lineChartOptions2021" [legend]="lineChartLegend2021">
+                </canvas>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="doughnut-chart-container">
+            <mat-card-content class="mat-card-content-line-chart">
+                <div class="text-box">
+                    <div class="headline headline-product-sales">Product Sales</div>
+                    <button class="btn-show-more" mat-button [matMenuTriggerFor]="belowMenu">
+                        <span *ngIf="graphWeek" class="span-period">This week</span>
+                        <span *ngIf="graphMonth" class="span-period">This month</span>
+                        <span *ngIf="graphYear" class="span-period">This year</span>
+                        <mat-icon class="icon">expand_more</mat-icon>
+                    </button>
+                    <mat-menu class="mat-menu" #belowMenu="matMenu" yPosition="below">
+                        <button mat-menu-item *ngIf="!graphWeek" (click)="showGraphWeek()">
+                            This week
+                        </button>
+                        <button mat-menu-item *ngIf="!graphMonth" (click)="showGraphMonth()">
+                            This month
+                        </button>
+                        <button mat-menu-item *ngIf="!graphYear" (click)="showGraphYear()">
+                            This year
+                        </button>
+                    </mat-menu>
+                </div>
+
+                <canvas *ngIf="graphWeek" baseChart [labels]="doughnutChartLabelsWeek"
+                    [datasets]="doughnutChartDatasetsWeek" [options]="doughnutChartOptionsWeek" [legend]="false"
+                    [type]="'doughnut'">
+                </canvas>
+
+                <canvas *ngIf="graphMonth" baseChart [labels]="doughnutChartLabelsMonth"
+                    [datasets]="doughnutChartDatasetsMonth" [options]="doughnutChartOptionsMonth" [legend]="false"
+                    [type]="'doughnut'">
+                </canvas>
+
+                <canvas *ngIf="graphYear" baseChart [labels]="doughnutChartLabelsYear"
+                    [datasets]="doughnutChartDatasetsYear" [options]="doughnutChartOptionsYear" [legend]="false"
+                    [type]="'doughnut'">
+                </canvas>
+
+                <div class="legend-box">
+                    <span class="product-one">Product One</span>
+                    <span class="product-two">Product Two</span>
+                    <span class="product-three">Product Three</span>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div class="amount-container">
+        <mat-card class="card-amount card-margin">
+          <mat-card-content class="card-amount-content">
+            <div class="headline text-center">New customer this week</div>
+            <div class="amount-box">
+              <div class="amount week-amount">35</div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-card class="card-amount">
+          <mat-card-content class="card-amount-content">
+            <div class="headline text-center">Sales today</div>
+            <div class="amount-box">
+              <span class="amount">67</span>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+</section>
