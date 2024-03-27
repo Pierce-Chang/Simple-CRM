@@ -1,13 +1,13 @@
 <section>
     <div class="graphs-container">
         <mat-card class="line-chart-container">
-            <mat-card-content class="mat-card-content-line-chart">
-                <div class="text-box-line-chart">
-                    <div class="headline headline-total-sales">Total Sales</div>
-                    <button class="btn-show-more margin-btn" mat-button [matMenuTriggerFor]="belowMenu1">
-                        <span *ngIf="lineChart2023" class="span-period">2023</span>
-                        <span *ngIf="lineChart2022" class="span-period">2022</span>
-                        <span *ngIf="lineChart2021" class="span-period">2021</span>
+            <mat-card-content>
+                <div>
+                    <div>Total Sales</div>
+                    <button mat-button [matMenuTriggerFor]="belowMenu1">
+                        <span *ngIf="lineChart2023">2023</span>
+                        <span *ngIf="lineChart2022">2022</span>
+                        <span *ngIf="lineChart2021">2021</span>
                         <mat-icon class="icon">expand_more</mat-icon>
                     </button>
                     <mat-menu class="mat-menu" #belowMenu1="matMenu" yPosition="below">
@@ -85,6 +85,26 @@
     </div>
 
     <div class="container-review-sellstats">
+
+        <div class="amount-container">
+            <mat-card class="card-amount">
+                <mat-card-content class="card-amount-content">
+                    <div class="selling-infocard">New customer <br> this week</div>
+                    <div>
+                        <p class="sales-stats">+45</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <mat-card class="card-amount">
+                <mat-card-content class="card-amount-content">
+                    <div class="selling-infocard">Sales today</div>
+                    <div class="amount-box">
+                        <p class="sales-stats">+67</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
         <div class="container-reviews">
             @for (review of lastReviews; track $index) {
             <mat-card class="review-card">
@@ -98,26 +118,7 @@
                 </mat-card-content>
             </mat-card>}
         </div>
-
-
-        <div class="amount-container">
-            <mat-card class="card-amount">
-                <mat-card-content class="card-amount-content">
-                    <div class="selling-infocard">New customer <br> this week</div>
-                    <div>
-                        <p>+45</p>
-                    </div>
-                </mat-card-content>
-            </mat-card>
-            <mat-card class="card-amount">
-                <mat-card-content class="card-amount-content">
-                    <div class="selling-infocard">Sales today</div>
-                    <div class="amount-box">
-                        <p class="amount">+67</p>
-                    </div>
-                </mat-card-content>
-            </mat-card>
-        </div>
+        
     </div>
 
 
