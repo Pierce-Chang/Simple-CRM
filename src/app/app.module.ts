@@ -16,7 +16,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user/user.component';
 import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.component';
 import { MatNativeDateModule } from '@angular/material/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { initializeApp } from "firebase/app";
 import { initializeApp as initializeApp_alias, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
@@ -30,6 +30,9 @@ import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-ad
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
 import { NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
 import { ReviewsComponent } from './reviews/reviews.component';
+import { NewsComponent } from './news/news.component';
+import { MainComponent } from './main/main.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -41,7 +44,10 @@ import { ReviewsComponent } from './reviews/reviews.component';
     UserDetailComponent,
     DialogEditAddressComponent,
     DialogEditUserComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    NewsComponent,
+    MainComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +71,8 @@ import { ReviewsComponent } from './reviews/reviews.component';
     CommonModule,
     MatCardModule,
     MatMenuModule,
-    NgChartsModule
+    NgChartsModule,
+    ReactiveFormsModule,
   ],
   providers: [FirestoreModule, { provide: NgChartsConfiguration, useValue: { generateColors: false }}],
   bootstrap: [AppComponent]

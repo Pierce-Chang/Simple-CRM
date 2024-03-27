@@ -1,0 +1,140 @@
+.news-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 32px 12px;
+  }
+  
+  .mat-card {
+    width: 400px;
+    margin: 12px 5px;
+    height: fit-content;
+  }
+  
+  .mat-card-title {
+    min-height: 40px;
+    min-height: 100px;
+    max-height: 100px;
+    max-width: 364px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .mat-card-title::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .mat-card-title::-webkit-scrollbar-track {
+    border-radius: 2px;
+  }
+  
+  .mat-card-title::-webkit-scrollbar-thumb {
+    background: lightgray;
+    border-radius: 2px;
+  }
+  
+  .subtitle {
+    margin: 5px 0;
+  }
+  
+  .news-img {
+    height: 250px;
+    object-fit: cover;
+  }
+  
+  .summary {
+    margin-top: 15px;
+    min-height: 80px;
+    max-height: 80px;
+    overflow-y: auto;
+  }
+  
+  .summary::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .summary::-webkit-scrollbar-track {
+    border-radius: 2px;
+  }
+  
+  .summary::-webkit-scrollbar-thumb {
+    background: lightgray;
+    border-radius: 2px;
+  }
+  
+  
+  //responsiv
+  
+  @media(max-width: 950px) {
+    .mat-card {
+      width: 300px;
+    }
+  
+    .news-img {
+      height: 200px;
+    }
+  
+    .mat-card-title {
+      -webkit-line-clamp: 2;
+      min-height: 68px;
+      max-height: 68px;
+    }
+  }
+  
+  
+  @media(max-width: 750px) {
+    .mat-card {
+      width: 250px;
+    }
+  
+    .news-img {
+      height: 150px;
+    }
+  
+    .mat-card-title {
+      max-height: 65px;
+    }
+  }
+  
+  
+  @media(max-width: 650px) {
+    .mat-card {
+      width: 200px;
+    }
+  
+    .news-img {
+      height: 100px;
+    }
+  
+    .mat-card-title {
+      min-height: 66px;
+    }
+  }
+  
+  
+  @media(max-width: 600px) {
+    .news-container {
+      margin: 16px 0;
+    }
+  }
+  
+  
+  @media(max-width: 530px) {
+    .mat-card {
+      width: 90%;
+    }
+  
+    .news-img {
+      height: 200px;
+    }
+  }
+  
+  
+  @media(max-width: 350px) {
+    .news-img {
+      height: 100px;
+    }
+  }

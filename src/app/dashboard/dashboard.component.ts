@@ -20,6 +20,45 @@ export class DashboardComponent {
 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
+  public lastReviews = [
+    {
+      "id": 1,
+      "product": "Wireless Headphones",
+      "rating": 5,
+      "comment": "Hervorragender Klang und sehr bequem zu tragen. Akkulaufzeit ist auch super.",
+      "date": "2024-03-20"
+    },
+    {
+      "id": 2,
+      "product": "Ergonomic Keyboard",
+      "rating": 4,
+      "comment": "Tolle Tastatur, das Tippen fühlt sich gut an. Ein Stern Abzug wegen der Beleuchtung.",
+      "date": "2024-03-18"
+    },
+    {
+      "id": 3,
+      "product": "Smartwatch Fitness Tracker",
+      "rating": 5,
+      "comment": "Zählt Schritte genau und hat viele nützliche Funktionen. Sehr zufrieden!",
+      "date": "2024-03-15"
+    },
+    {
+      "id": 4,
+      "product": "Portable External Hard Drive",
+      "rating": 3,
+      "comment": "Funktioniert gut, aber die Übertragungsgeschwindigkeit könnte besser sein.",
+      "date": "2024-03-12"
+    },
+    {
+      "id": 5,
+      "product": "USB-C Hub Adapter",
+      "rating": 4,
+      "comment": "Macht genau was es soll, Verarbeitung könnte jedoch hochwertiger sein.",
+      "date": "2024-03-10"
+    }
+  ];
+  
+
   // Doughnut Graph Week
   public doughnutChartLabelsWeek: string[] = [
     'Product One',
