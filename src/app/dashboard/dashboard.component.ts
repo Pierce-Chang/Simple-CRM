@@ -20,6 +20,10 @@ export class DashboardComponent {
 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
+  getStars(rating: number): Array<any> {
+    return new Array(rating);
+  }
+
   public lastReviews = [
     {
       "id": 1,

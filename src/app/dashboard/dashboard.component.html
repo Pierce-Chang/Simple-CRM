@@ -110,7 +110,9 @@
             <mat-card class="review-card">
                 <mat-card-content>
                     <div class="review-box">
-                        <p>{{ review.rating }}</p>
+                        <span *ngFor="let star of getStars(review.rating); let i = index">
+                            <mat-icon class="stars">star</mat-icon>
+                        </span>
                         <p>{{ review.product }}</p>
                         <p>{{ review.comment }}</p>
                         <p>{{ review.date }}</p>
@@ -118,7 +120,7 @@
                 </mat-card-content>
             </mat-card>}
         </div>
-        
+
     </div>
 
 
