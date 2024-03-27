@@ -33,6 +33,7 @@ import { ReviewsComponent } from './reviews/reviews.component';
 import { NewsComponent } from './news/news.component';
 import { MainComponent } from './main/main.component';
 import { LoginComponent } from './login/login.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -73,6 +74,7 @@ import { LoginComponent } from './login/login.component';
     MatMenuModule,
     NgChartsModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
   ],
   providers: [FirestoreModule, { provide: NgChartsConfiguration, useValue: { generateColors: false }}],
   bootstrap: [AppComponent]

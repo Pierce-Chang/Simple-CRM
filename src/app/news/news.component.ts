@@ -1,11 +1,12 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
   styleUrl: './news.component.scss'
 })
-export class NewsComponent implements OnInit{
+export class NewsComponent implements OnInit {
   API_KEY: String = 'YLOYYPLC8FAKSOSJ';
   url =
     'https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=AAPL&apikey=' +

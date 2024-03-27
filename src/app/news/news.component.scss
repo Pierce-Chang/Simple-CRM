@@ -35,6 +35,19 @@
     background: lightgray;
     border-radius: 2px;
   }
+
+  .spinner-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+  }
+
+  .spinner {
+    height: 300px;
+  }
   
   .subtitle {
     margin: 5px 0;
