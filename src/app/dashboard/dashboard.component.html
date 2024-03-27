@@ -84,22 +84,42 @@
         </mat-card>
     </div>
 
-    <div class="amount-container">
-        <mat-card class="card-amount card-margin">
-          <mat-card-content class="card-amount-content">
-            <div class="headline text-center">New customer this week</div>
-            <div class="amount-box">
-              <div class="amount week-amount">35</div>
-            </div>
-          </mat-card-content>
-        </mat-card>
-        <mat-card class="card-amount">
-          <mat-card-content class="card-amount-content">
-            <div class="headline text-center">Sales today</div>
-            <div class="amount-box">
-              <span class="amount">67</span>
-            </div>
-          </mat-card-content>
-        </mat-card>
-      </div>
+    <div class="container-review-sellstats">
+        <div class="container-reviews">
+            @for (review of lastReviews; track $index) {
+            <mat-card class="review-card">
+                <mat-card-content>
+                    <div class="review-box">
+                        <p>{{ review.rating }}</p>
+                        <p>{{ review.product }}</p>
+                        <p>{{ review.comment }}</p>
+                        <p>{{ review.date }}</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>}
+        </div>
+
+
+        <div class="amount-container">
+            <mat-card class="card-amount">
+                <mat-card-content class="card-amount-content">
+                    <div class="selling-infocard">New customer <br> this week</div>
+                    <div>
+                        <p>+ 35</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <mat-card class="card-amount">
+                <mat-card-content class="card-amount-content">
+                    <div class="selling-infocard">Sales today</div>
+                    <div class="amount-box">
+                        <p class="amount">+ 67</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+
+
+
 </section>
