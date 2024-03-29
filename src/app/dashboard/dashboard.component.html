@@ -60,10 +60,14 @@
                     </mat-menu>
                 </div>
 
-                <canvas *ngIf="graphWeek" baseChart [labels]="doughnutChartLabelsWeek"
-                    [datasets]="doughnutChartDatasetsWeek" [options]="doughnutChartOptionsWeek" [legend]="false"
-                    [type]="'doughnut'">
-                </canvas>
+
+                <div class="canvas-container">
+                    <canvas *ngIf="graphWeek" baseChart [labels]="doughnutChartLabelsWeek"
+                        [datasets]="doughnutChartDatasetsWeek" [options]="doughnutChartOptionsWeek" [legend]="false"
+                        [type]="'doughnut'">
+                    </canvas>
+                </div>
+
 
                 <canvas *ngIf="graphMonth" baseChart [labels]="doughnutChartLabelsMonth"
                     [datasets]="doughnutChartDatasetsMonth" [options]="doughnutChartOptionsMonth" [legend]="false"
