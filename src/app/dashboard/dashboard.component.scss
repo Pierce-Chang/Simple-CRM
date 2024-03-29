@@ -102,13 +102,18 @@ section {
     width: 100%;
     height: 37.5vh;
     overflow-y: scroll;
+    scroll-behavior: smooth;
 }
 
 .review-card {
     border-radius: 36px;
-    margin-right: 8px;
 }
 
 .stars {
     color: yellow;
+}
+
+.product-name {
+    font-size: 20px;
+    font-weight: 500;
 }

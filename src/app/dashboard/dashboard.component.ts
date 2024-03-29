@@ -45,29 +45,15 @@ export class DashboardComponent {
       "rating": 5,
       "comment": "Zählt Schritte genau und hat viele nützliche Funktionen. Sehr zufrieden!",
       "date": "2024-03-15"
-    },
-    {
-      "id": 4,
-      "product": "Portable External Hard Drive",
-      "rating": 3,
-      "comment": "Funktioniert gut, aber die Übertragungsgeschwindigkeit könnte besser sein.",
-      "date": "2024-03-12"
-    },
-    {
-      "id": 5,
-      "product": "USB-C Hub Adapter",
-      "rating": 4,
-      "comment": "Macht genau was es soll, Verarbeitung könnte jedoch hochwertiger sein.",
-      "date": "2024-03-10"
     }
   ];
   
 
   // Doughnut Graph Week
   public doughnutChartLabelsWeek: string[] = [
-    'Product One',
-    'Product Two',
-    'Product Three',
+    'Wireless Headphones',
+    'Ergonomic Keyboard',
+    'Smartwatch Fitness Tracker',
   ];
   public doughnutChartDatasetsWeek: ChartConfiguration<'doughnut'>['data']['datasets'] =
     [{  data: [631, 467, 280],
@@ -83,9 +69,9 @@ export class DashboardComponent {
 
   // Doughnut Graph Month
   public doughnutChartLabelsMonth: string[] = [
-    'Product One',
-    'Product Two',
-    'Product Three',
+    'Wireless Headphones',
+    'Ergonomic Keyboard',
+    'Smartwatch Fitness Tracker',
   ];
   public doughnutChartDatasetsMonth: ChartConfiguration<'doughnut'>['data']['datasets'] =
     [{  data: [2567, 1698, 1860],
@@ -102,9 +88,9 @@ export class DashboardComponent {
 
   // Doughnut Graph Year
   public doughnutChartLabelsYear: string[] = [
-    'Product One',
-    'Product Two',
-    'Product Three',
+    'Wireless Headphones',
+    'Ergonomic Keyboard',
+    'Smartwatch Fitness Tracker',
   ];
   public doughnutChartDatasetsYear: ChartConfiguration<'doughnut'>['data']['datasets'] =
     [{  data: [17654, 18433, 24399],

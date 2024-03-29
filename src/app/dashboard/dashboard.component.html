@@ -76,9 +76,9 @@
                 </canvas>
 
                 <div class="legend-box">
-                    <span class="product-one">Product One</span>
-                    <span class="product-two">Product Two</span>
-                    <span class="product-three">Product Three</span>
+                    <span class="product-one">Wireless Headphones</span>
+                    <span class="product-two">Ergonomic Keyboard</span>
+                    <span class="product-three">Smartwatch Fitness Tracker</span>
                 </div>
             </mat-card-content>
         </mat-card>
@@ -113,7 +113,7 @@
                         <span *ngFor="let star of getStars(review.rating); let i = index">
                             <mat-icon class="stars">star</mat-icon>
                         </span>
-                        <p>{{ review.product }}</p>
+                        <p class="product-name">{{ review.product }}</p>
                         <p>{{ review.comment }}</p>
                         <p>{{ review.date }}</p>
                     </div>
