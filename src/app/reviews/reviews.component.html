@@ -13,3 +13,23 @@
     </mat-card-content>
 </mat-card>
 
+<mat-card>
+  <mat-card-content>
+    <div class="container-reviews">
+      @for (review of this.reviewService.lastReviews; track $index) {
+      <mat-card class="review-card">
+          <mat-card-content>
+              <div>
+                  <span *ngFor="let star of this.reviewService.getStars(review.rating); let i = index">
+                      <mat-icon class="stars">star</mat-icon>
+                  </span>
+                  <p class="product-name">{{ review.product }}</p>
+                  <p>{{ review.comment }}</p>
+                  <p>{{ review.date }}</p>
+              </div>
+          </mat-card-content>
+      </mat-card>}
+  </div>
+  </mat-card-content>
+</mat-card>
+

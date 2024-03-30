@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import { ReviewService } from '../services/review.service';
 
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 
@@ -11,6 +12,8 @@ import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 })
 export class ReviewsComponent {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
+
+  constructor(public reviewService: ReviewService) {}
 
   public customerReviewChartOptions: ChartConfiguration['options'] = {
     scales: {

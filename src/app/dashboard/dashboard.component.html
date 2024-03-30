@@ -110,11 +110,11 @@
         </div>
 
         <div class="container-reviews">
-            @for (review of lastReviews; track $index) {
+            @for (review of this.reviewService.lastReviews; track $index) {
             <mat-card class="review-card">
                 <mat-card-content>
-                    <div class="review-box">
-                        <span *ngFor="let star of getStars(review.rating); let i = index">
+                    <div>
+                        <span *ngFor="let star of this.reviewService.getStars(review.rating); let i = index">
                             <mat-icon class="stars">star</mat-icon>
                         </span>
                         <p class="product-name">{{ review.product }}</p>

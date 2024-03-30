@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild  } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartEvent, ChartOptions, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import { ReviewService } from '../services/review.service';
 
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 @Component({
@@ -19,35 +20,7 @@ export class DashboardComponent {
   public loading = true;
 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
-
-  getStars(rating: number): Array<any> {
-    return new Array(rating);
-  }
-
-  public lastReviews = [
-    {
-      "id": 1,
-      "product": "Wireless Headphones",
-      "rating": 5,
-      "comment": "Hervorragender Klang und sehr bequem zu tragen. Akkulaufzeit ist auch super.",
-      "date": "2024-03-20"
-    },
-    {
-      "id": 2,
-      "product": "Ergonomic Keyboard",
-      "rating": 4,
-      "comment": "Tolle Tastatur, das Tippen fühlt sich gut an. Ein Stern Abzug wegen der Beleuchtung.",
-      "date": "2024-03-18"
-    },
-    {
-      "id": 3,
-      "product": "Smartwatch Fitness Tracker",
-      "rating": 5,
-      "comment": "Zählt Schritte genau und hat viele nützliche Funktionen. Sehr zufrieden!",
-      "date": "2024-03-15"
-    }
-  ];
-  
+  constructor(public reviewService: ReviewService){}
 
   // Doughnut Graph Week
   public doughnutChartLabelsWeek: string[] = [
