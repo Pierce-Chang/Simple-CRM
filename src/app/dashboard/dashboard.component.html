@@ -2,8 +2,8 @@
     <div class="graphs-container">
         <mat-card class="line-chart-container">
             <mat-card-content>
-                <div>
-                    <div>Total Sales</div>
+                <div class="text-box">
+                    <div class="graph-head">Total Sales</div>
                     <button mat-button [matMenuTriggerFor]="belowMenu1">
                         <span *ngIf="lineChart2023">2023</span>
                         <span *ngIf="lineChart2022">2022</span>
@@ -40,7 +40,7 @@
         <mat-card class="doughnut-chart-container">
             <mat-card-content class="mat-card-content-line-chart">
                 <div class="text-box">
-                    <div class="headline headline-product-sales">Product Sales</div>
+                    <div class="graph-head">Product Sales</div>
                     <button class="btn-show-more" mat-button [matMenuTriggerFor]="belowMenu">
                         <span *ngIf="graphWeek" class="span-period">This week</span>
                         <span *ngIf="graphMonth" class="span-period">This month</span>
@@ -80,9 +80,9 @@
                 </canvas>
 
                 <div class="legend-box">
-                    <span class="product-one">Wireless Headphones</span>
-                    <span class="product-two">Ergonomic Keyboard</span>
-                    <span class="product-three">Smartwatch Fitness Tracker</span>
+                    <span>Wireless Headphones</span>
+                    <span>Ergonomic Keyboard</span>
+                    <span>Smartwatch Fitness Tracker</span>
                 </div>
             </mat-card-content>
         </mat-card>

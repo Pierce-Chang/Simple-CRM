@@ -16,8 +16,8 @@ export class ReviewsComponent {
     scales: {
       x: {},
       y: {
-        min: 0, // Minimalwert auf 0 setzen, um das Diagramm auf eine Skala von 0 bis 5 zu beschränken
-        max: 5, // Maximalwert auf 5 setzen für eine Bewertungsskala von 1 bis 5
+        min: 0,
+        max: 5,
       },
     },
     plugins: {
@@ -35,10 +35,10 @@ export class ReviewsComponent {
   public barChartPlugins = [DataLabelsPlugin];
 
   public customerReviewChartData: ChartData<'bar'> = {
-    labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+    labels: ['2021', '2022', '2023', '2024'],
     datasets: [
       {
-        data: [4.5, 4.3, 4.6, 4.8, 4.2, 4.9, 4.7],
+        data: [4.8, 4.2, 4.9, 4.7],
         label: 'Customer Satisfaction',
         backgroundColor: 'rgba(255, 215, 0, 0.6)',
         borderColor: 'rgb(255, 215, 0)'
