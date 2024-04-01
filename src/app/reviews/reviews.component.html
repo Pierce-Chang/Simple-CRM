@@ -1,38 +1,36 @@
 <section>
-  <mat-card class="review-diagram">
-    <mat-card-content>
-        <div>
-            <mat-card>
-              <mat-card-content>
-                <h2>Customer reviews</h2>
-                <canvas baseChart class="chart" [data]="customerReviewChartData" [options]="customerReviewChartOptions"
-                        [plugins]="barChartPlugins" [type]="barChartType">
-                </canvas>
-              </mat-card-content>
-            </mat-card>
-          </div>              
-    </mat-card-content>
-</mat-card>
-
-<mat-card>
-  <mat-card-content>
-    <div class="container-reviews">
-      @for (review of this.reviewService.lastReviews; track $index) {
-      <mat-card class="review-card">
+  <mat-card class="review-diagram-container">
+    <mat-card-content class="review-diagram">
+      <div>
+        <mat-card>
           <mat-card-content>
-              <div>
-                  <span *ngFor="let star of this.reviewService.getStars(review.rating); let i = index">
-                      <mat-icon class="stars">star</mat-icon>
-                  </span>
-                  <p class="product-name">{{ review.product }}</p>
-                  <p>{{ review.comment }}</p>
-                  <p>{{ review.date }}</p>
-              </div>
+            <h2>Customer Reviews:</h2>
+            <canvas baseChart class="chart" [data]="customerReviewChartData" [options]="customerReviewChartOptions"
+              [plugins]="barChartPlugins" [type]="barChartType" width="850" height="200">
+            </canvas>
           </mat-card-content>
-      </mat-card>}
-  </div>
-  </mat-card-content>
-</mat-card>
+        </mat-card>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-content>
+      <div class="container-reviews">
+        @for (review of this.reviewService.lastReviews; track $index) {
+        <mat-card class="review-card">
+          <mat-card-content>
+            <div>
+              <span *ngFor="let star of this.reviewService.getStars(review.rating); let i = index">
+                <mat-icon class="stars">star</mat-icon>
+              </span>
+              <p class="product-name">{{ review.product }}</p>
+              <p>{{ review.comment }}</p>
+              <p>{{ review.date }}</p>
+            </div>
+          </mat-card-content>
+        </mat-card>}
+      </div>
+    </mat-card-content>
+  </mat-card>
 </section>
-
-
