@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild  } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartEvent, ChartOptions, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { ReviewService } from '../services/review.service';
@@ -16,11 +16,24 @@ export class DashboardComponent {
   lineChart2023: Boolean = true;
   lineChart2022: Boolean = false;
   lineChart2021: Boolean = false;
+  showLineChart: boolean = true;
+  showDonutChart: boolean = true;
   markers: any[] = [];
   public loading = true;
 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
-  constructor(public reviewService: ReviewService){}
+  constructor(public reviewService: ReviewService) { }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    this.showLineChart = false;
+    this.showDonutChart = false;
+
+    setTimeout(() => {
+      this.showLineChart = true;
+      this.showDonutChart = true;
+    }, 100);
+  }
 
   // Doughnut Graph Week
   public doughnutChartLabelsWeek: string[] = [
@@ -29,11 +42,12 @@ export class DashboardComponent {
     'Smartwatch Fitness Tracker',
   ];
   public doughnutChartDatasetsWeek: ChartConfiguration<'doughnut'>['data']['datasets'] =
-    [{  data: [631, 467, 280],
-        label: 'Sales',
-        backgroundColor: ["#00bfff3d","#ffd502","#5ede60"],
-        //hoverBackgroundColor: ["#96b7b9","#718283","#5c6b6d"],
-      }];
+    [{
+      data: [631, 467, 280],
+      label: 'Sales',
+      backgroundColor: ["#00bfff3d", "#ffd502", "#5ede60"],
+      //hoverBackgroundColor: ["#96b7b9","#718283","#5c6b6d"],
+    }];
 
   public doughnutChartOptionsWeek: ChartConfiguration<'doughnut'>['options'] = {
     responsive: true,
@@ -47,11 +61,12 @@ export class DashboardComponent {
     'Smartwatch Fitness Tracker',
   ];
   public doughnutChartDatasetsMonth: ChartConfiguration<'doughnut'>['data']['datasets'] =
-    [{  data: [2567, 1698, 1860],
-        label: 'Sales',
-        backgroundColor: ["#00bfff3d","#ffd502","#5ede60"],
-        //hoverBackgroundColor: ["#96b7b9","#718283","#5c6b6d"],
-      }];
+    [{
+      data: [2567, 1698, 1860],
+      label: 'Sales',
+      backgroundColor: ["#00bfff3d", "#ffd502", "#5ede60"],
+      //hoverBackgroundColor: ["#96b7b9","#718283","#5c6b6d"],
+    }];
 
   public doughnutChartOptionsMonth: ChartConfiguration<'doughnut'>['options'] =
     {
@@ -66,11 +81,12 @@ export class DashboardComponent {
     'Smartwatch Fitness Tracker',
   ];
   public doughnutChartDatasetsYear: ChartConfiguration<'doughnut'>['data']['datasets'] =
-    [{  data: [17654, 18433, 24399],
-        label: 'Sales',
-        backgroundColor: ["#00bfff3d","#ffd502","#5ede60"],
-        //hoverBackgroundColor: ["#96b7b9","#718283","#5c6b6d"],
-      }];
+    [{
+      data: [17654, 18433, 24399],
+      label: 'Sales',
+      backgroundColor: ["#00bfff3d", "#ffd502", "#5ede60"],
+      //hoverBackgroundColor: ["#96b7b9","#718283","#5c6b6d"],
+    }];
 
   public doughnutChartOptionsYear: ChartConfiguration<'doughnut'>['options'] = {
     responsive: true,
@@ -79,7 +95,7 @@ export class DashboardComponent {
   };
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   //Line Chart 2023
   public lineChartData2023: ChartConfiguration<'line'>['data'] = {
