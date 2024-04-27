@@ -95,3 +95,9 @@ mat-toolbar-row {
         font-size: 28px;
     }
 }
+
+@media(max-width: 600px) {
+    .hello-user {
+        display: none;
+    }
+}

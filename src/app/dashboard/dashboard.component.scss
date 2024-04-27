@@ -168,6 +168,17 @@ section {
     }
 }
 
+@media(max-width: 600px) {
+    .amount-container {
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .container-review-sellstats {
+        flex-direction: column;
+    }
+}
+
 @media(max-height: 1000px) {
     .mat-card-content-line-chart {
         scale: 0.8;
