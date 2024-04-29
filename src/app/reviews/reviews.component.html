@@ -6,7 +6,7 @@
           <mat-card-content>
             <h2>Customer Reviews:</h2>
             <canvas baseChart class="chart" [data]="customerReviewChartData" [options]="customerReviewChartOptions"
-              [plugins]="barChartPlugins" [type]="barChartType" width="850" height="200">
+              [plugins]="barChartPlugins" [type]="barChartType" width="550" height="200">
             </canvas>
           </mat-card-content>
         </mat-card>
@@ -14,7 +14,7 @@
     </mat-card-content>
   </mat-card>
 
-  <mat-card>
+  <mat-card class="review-cards-container">
     <mat-card-content>
       <div class="container-reviews">
         @for (review of this.reviewService.lastReviews; track $index) {
