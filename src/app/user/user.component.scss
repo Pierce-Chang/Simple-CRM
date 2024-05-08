@@ -3,6 +3,10 @@ mat-card {
     padding-right: 0;
 }
 
+mat-card-content {
+    overflow-x: auto;
+}
+
 .add-user-button {
     position: absolute;
     right: 56px;
@@ -32,10 +36,9 @@ mat-card {
 
         td {
             height: 48px;
+            white-space: nowrap;
+            padding-left: 16px;
 
-            &:first-child {
-                padding-left: 16px;
-            }
         }
 
         th {
