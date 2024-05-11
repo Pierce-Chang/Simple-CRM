@@ -8,7 +8,7 @@ import { MatDrawer } from '@angular/material/sidenav';
   styleUrl: './main.component.scss'
 })
 export class MainComponent {
-  loginname = ['Pierce Chang', 'Test-User'];
+  loginname = ['Pierce Chang', 'User'];
 
   @ViewChild('drawer') drawer?: MatDrawer;
 
